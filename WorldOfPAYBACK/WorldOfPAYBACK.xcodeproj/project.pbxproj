@@ -14,6 +14,19 @@
 		4CC0182B29AA203700FE0867 /* WorldOfPAYBACKTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4CC0182A29AA203700FE0867 /* WorldOfPAYBACKTests.swift */; };
 		4CC0183529AA203700FE0867 /* WorldOfPAYBACKUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4CC0183429AA203700FE0867 /* WorldOfPAYBACKUITests.swift */; };
 		4CC0183729AA203700FE0867 /* WorldOfPAYBACKUITestsLaunchTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4CC0183629AA203700FE0867 /* WorldOfPAYBACKUITestsLaunchTests.swift */; };
+		4CC0184529AA286400FE0867 /* ServersStorage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4CC0184429AA286400FE0867 /* ServersStorage.swift */; };
+		4CC0184829AA294500FE0867 /* Server.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4CC0184729AA294500FE0867 /* Server.swift */; };
+		4CC0184B29AA29AD00FE0867 /* server_info.json in Resources */ = {isa = PBXBuildFile; fileRef = 4CC0184A29AA29AD00FE0867 /* server_info.json */; };
+		4CC0184E29AA32D500FE0867 /* ApiMethods.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4CC0184D29AA32D500FE0867 /* ApiMethods.swift */; };
+		4CC0185029AA33C300FE0867 /* NetworkManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4CC0184F29AA33C300FE0867 /* NetworkManager.swift */; };
+		4CC0185229AA33F800FE0867 /* NetworkError.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4CC0185129AA33F800FE0867 /* NetworkError.swift */; };
+		4CC0185629AA360600FE0867 /* PBTransactions.json in Resources */ = {isa = PBXBuildFile; fileRef = 4CC0185529AA360600FE0867 /* PBTransactions.json */; };
+		4CC0185929AA366F00FE0867 /* TransactionsHistory.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4CC0185829AA366F00FE0867 /* TransactionsHistory.swift */; };
+		4CC0185C29AA43D500FE0867 /* NetworkMonitor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4CC0185B29AA43D500FE0867 /* NetworkMonitor.swift */; };
+		4CC0186429AA474A00FE0867 /* TransactionRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4CC0186329AA474A00FE0867 /* TransactionRepository.swift */; };
+		4CC0186729AA5D2100FE0867 /* TransactionRepositoryProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4CC0186629AA5D2100FE0867 /* TransactionRepositoryProtocol.swift */; };
+		4CC0186929AA5D4000FE0867 /* TransactionMockedRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4CC0186829AA5D4000FE0867 /* TransactionMockedRepository.swift */; };
+		4CC0186B29AA60DE00FE0867 /* TransactionsHistoryViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4CC0186A29AA60DE00FE0867 /* TransactionsHistoryViewModel.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -44,6 +57,19 @@
 		4CC0183029AA203700FE0867 /* WorldOfPAYBACKUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = WorldOfPAYBACKUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		4CC0183429AA203700FE0867 /* WorldOfPAYBACKUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WorldOfPAYBACKUITests.swift; sourceTree = "<group>"; };
 		4CC0183629AA203700FE0867 /* WorldOfPAYBACKUITestsLaunchTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WorldOfPAYBACKUITestsLaunchTests.swift; sourceTree = "<group>"; };
+		4CC0184429AA286400FE0867 /* ServersStorage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ServersStorage.swift; sourceTree = "<group>"; };
+		4CC0184729AA294500FE0867 /* Server.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Server.swift; sourceTree = "<group>"; };
+		4CC0184A29AA29AD00FE0867 /* server_info.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = server_info.json; sourceTree = "<group>"; };
+		4CC0184D29AA32D500FE0867 /* ApiMethods.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ApiMethods.swift; sourceTree = "<group>"; };
+		4CC0184F29AA33C300FE0867 /* NetworkManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkManager.swift; sourceTree = "<group>"; };
+		4CC0185129AA33F800FE0867 /* NetworkError.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkError.swift; sourceTree = "<group>"; };
+		4CC0185529AA360600FE0867 /* PBTransactions.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = PBTransactions.json; sourceTree = "<group>"; };
+		4CC0185829AA366F00FE0867 /* TransactionsHistory.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TransactionsHistory.swift; sourceTree = "<group>"; };
+		4CC0185B29AA43D500FE0867 /* NetworkMonitor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkMonitor.swift; sourceTree = "<group>"; };
+		4CC0186329AA474A00FE0867 /* TransactionRepository.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TransactionRepository.swift; sourceTree = "<group>"; };
+		4CC0186629AA5D2100FE0867 /* TransactionRepositoryProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TransactionRepositoryProtocol.swift; sourceTree = "<group>"; };
+		4CC0186829AA5D4000FE0867 /* TransactionMockedRepository.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TransactionMockedRepository.swift; sourceTree = "<group>"; };
+		4CC0186A29AA60DE00FE0867 /* TransactionsHistoryViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TransactionsHistoryViewModel.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -94,6 +120,8 @@
 		4CC0181829AA203700FE0867 /* WorldOfPAYBACK */ = {
 			isa = PBXGroup;
 			children = (
+				4CC0186129AA471600FE0867 /* TransactionsHistory */,
+				4CC0184329AA281400FE0867 /* Network */,
 				4CC0181929AA203700FE0867 /* WorldOfPAYBACKApp.swift */,
 				4CC0181B29AA203700FE0867 /* ContentView.swift */,
 				4CC0181D29AA203700FE0867 /* Assets.xcassets */,
@@ -125,6 +153,89 @@
 				4CC0183629AA203700FE0867 /* WorldOfPAYBACKUITestsLaunchTests.swift */,
 			);
 			path = WorldOfPAYBACKUITests;
+			sourceTree = "<group>";
+		};
+		4CC0184329AA281400FE0867 /* Network */ = {
+			isa = PBXGroup;
+			children = (
+				4CC0185A29AA43BB00FE0867 /* Monitor */,
+				4CC0185329AA344B00FE0867 /* Manager */,
+				4CC0184C29AA2AFA00FE0867 /* Storage */,
+				4CC0184629AA293800FE0867 /* Models */,
+				4CC0184929AA299300FE0867 /* Resources */,
+				4CC0184D29AA32D500FE0867 /* ApiMethods.swift */,
+			);
+			path = Network;
+			sourceTree = "<group>";
+		};
+		4CC0184629AA293800FE0867 /* Models */ = {
+			isa = PBXGroup;
+			children = (
+				4CC0184729AA294500FE0867 /* Server.swift */,
+				4CC0185829AA366F00FE0867 /* TransactionsHistory.swift */,
+			);
+			path = Models;
+			sourceTree = "<group>";
+		};
+		4CC0184929AA299300FE0867 /* Resources */ = {
+			isa = PBXGroup;
+			children = (
+				4CC0184A29AA29AD00FE0867 /* server_info.json */,
+				4CC0185529AA360600FE0867 /* PBTransactions.json */,
+			);
+			path = Resources;
+			sourceTree = "<group>";
+		};
+		4CC0184C29AA2AFA00FE0867 /* Storage */ = {
+			isa = PBXGroup;
+			children = (
+				4CC0184429AA286400FE0867 /* ServersStorage.swift */,
+			);
+			path = Storage;
+			sourceTree = "<group>";
+		};
+		4CC0185329AA344B00FE0867 /* Manager */ = {
+			isa = PBXGroup;
+			children = (
+				4CC0184F29AA33C300FE0867 /* NetworkManager.swift */,
+				4CC0185129AA33F800FE0867 /* NetworkError.swift */,
+			);
+			path = Manager;
+			sourceTree = "<group>";
+		};
+		4CC0185A29AA43BB00FE0867 /* Monitor */ = {
+			isa = PBXGroup;
+			children = (
+				4CC0185B29AA43D500FE0867 /* NetworkMonitor.swift */,
+			);
+			path = Monitor;
+			sourceTree = "<group>";
+		};
+		4CC0186129AA471600FE0867 /* TransactionsHistory */ = {
+			isa = PBXGroup;
+			children = (
+				4CC0186529AA4DE200FE0867 /* ViewModel */,
+				4CC0186229AA473900FE0867 /* Repository */,
+			);
+			path = TransactionsHistory;
+			sourceTree = "<group>";
+		};
+		4CC0186229AA473900FE0867 /* Repository */ = {
+			isa = PBXGroup;
+			children = (
+				4CC0186329AA474A00FE0867 /* TransactionRepository.swift */,
+				4CC0186829AA5D4000FE0867 /* TransactionMockedRepository.swift */,
+				4CC0186629AA5D2100FE0867 /* TransactionRepositoryProtocol.swift */,
+			);
+			path = Repository;
+			sourceTree = "<group>";
+		};
+		4CC0186529AA4DE200FE0867 /* ViewModel */ = {
+			isa = PBXGroup;
+			children = (
+				4CC0186A29AA60DE00FE0867 /* TransactionsHistoryViewModel.swift */,
+			);
+			path = ViewModel;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -231,7 +342,9 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				4CC0184B29AA29AD00FE0867 /* server_info.json in Resources */,
 				4CC0182129AA203700FE0867 /* Preview Assets.xcassets in Resources */,
+				4CC0185629AA360600FE0867 /* PBTransactions.json in Resources */,
 				4CC0181E29AA203700FE0867 /* Assets.xcassets in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -257,8 +370,19 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				4CC0185029AA33C300FE0867 /* NetworkManager.swift in Sources */,
+				4CC0185229AA33F800FE0867 /* NetworkError.swift in Sources */,
+				4CC0186729AA5D2100FE0867 /* TransactionRepositoryProtocol.swift in Sources */,
 				4CC0181C29AA203700FE0867 /* ContentView.swift in Sources */,
+				4CC0184E29AA32D500FE0867 /* ApiMethods.swift in Sources */,
+				4CC0186B29AA60DE00FE0867 /* TransactionsHistoryViewModel.swift in Sources */,
+				4CC0184529AA286400FE0867 /* ServersStorage.swift in Sources */,
+				4CC0184829AA294500FE0867 /* Server.swift in Sources */,
 				4CC0181A29AA203700FE0867 /* WorldOfPAYBACKApp.swift in Sources */,
+				4CC0186429AA474A00FE0867 /* TransactionRepository.swift in Sources */,
+				4CC0185C29AA43D500FE0867 /* NetworkMonitor.swift in Sources */,
+				4CC0185929AA366F00FE0867 /* TransactionsHistory.swift in Sources */,
+				4CC0186929AA5D4000FE0867 /* TransactionMockedRepository.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
