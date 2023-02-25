@@ -27,6 +27,10 @@
 		4CC0186729AA5D2100FE0867 /* TransactionRepositoryProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4CC0186629AA5D2100FE0867 /* TransactionRepositoryProtocol.swift */; };
 		4CC0186929AA5D4000FE0867 /* TransactionMockedRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4CC0186829AA5D4000FE0867 /* TransactionMockedRepository.swift */; };
 		4CC0186B29AA60DE00FE0867 /* TransactionsHistoryViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4CC0186A29AA60DE00FE0867 /* TransactionsHistoryViewModel.swift */; };
+		4CC0186E29AA7DC500FE0867 /* TransactionHistoryView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4CC0186D29AA7DC400FE0867 /* TransactionHistoryView.swift */; };
+		4CC0187029AA7EA800FE0867 /* NetworkConnectionErrorView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4CC0186F29AA7EA800FE0867 /* NetworkConnectionErrorView.swift */; };
+		4CC0187229AA7EE400FE0867 /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = 4CC0187129AA7EE400FE0867 /* Localizable.strings */; };
+		4CC0187529AA800000FE0867 /* String+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4CC0187429AA800000FE0867 /* String+Extensions.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -70,6 +74,10 @@
 		4CC0186629AA5D2100FE0867 /* TransactionRepositoryProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TransactionRepositoryProtocol.swift; sourceTree = "<group>"; };
 		4CC0186829AA5D4000FE0867 /* TransactionMockedRepository.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TransactionMockedRepository.swift; sourceTree = "<group>"; };
 		4CC0186A29AA60DE00FE0867 /* TransactionsHistoryViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TransactionsHistoryViewModel.swift; sourceTree = "<group>"; };
+		4CC0186D29AA7DC400FE0867 /* TransactionHistoryView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TransactionHistoryView.swift; sourceTree = "<group>"; };
+		4CC0186F29AA7EA800FE0867 /* NetworkConnectionErrorView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkConnectionErrorView.swift; sourceTree = "<group>"; };
+		4CC0187129AA7EE400FE0867 /* Localizable.strings */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; path = Localizable.strings; sourceTree = "<group>"; };
+		4CC0187429AA800000FE0867 /* String+Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "String+Extensions.swift"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -120,12 +128,15 @@
 		4CC0181829AA203700FE0867 /* WorldOfPAYBACK */ = {
 			isa = PBXGroup;
 			children = (
+				4CC0187329AA7FED00FE0867 /* Helpers */,
 				4CC0186129AA471600FE0867 /* TransactionsHistory */,
 				4CC0184329AA281400FE0867 /* Network */,
 				4CC0181929AA203700FE0867 /* WorldOfPAYBACKApp.swift */,
 				4CC0181B29AA203700FE0867 /* ContentView.swift */,
+				4CC0186F29AA7EA800FE0867 /* NetworkConnectionErrorView.swift */,
 				4CC0181D29AA203700FE0867 /* Assets.xcassets */,
 				4CC0181F29AA203700FE0867 /* Preview Content */,
+				4CC0187129AA7EE400FE0867 /* Localizable.strings */,
 			);
 			path = WorldOfPAYBACK;
 			sourceTree = "<group>";
@@ -214,6 +225,7 @@
 		4CC0186129AA471600FE0867 /* TransactionsHistory */ = {
 			isa = PBXGroup;
 			children = (
+				4CC0186C29AA7D8E00FE0867 /* Views */,
 				4CC0186529AA4DE200FE0867 /* ViewModel */,
 				4CC0186229AA473900FE0867 /* Repository */,
 			);
@@ -236,6 +248,22 @@
 				4CC0186A29AA60DE00FE0867 /* TransactionsHistoryViewModel.swift */,
 			);
 			path = ViewModel;
+			sourceTree = "<group>";
+		};
+		4CC0186C29AA7D8E00FE0867 /* Views */ = {
+			isa = PBXGroup;
+			children = (
+				4CC0186D29AA7DC400FE0867 /* TransactionHistoryView.swift */,
+			);
+			path = Views;
+			sourceTree = "<group>";
+		};
+		4CC0187329AA7FED00FE0867 /* Helpers */ = {
+			isa = PBXGroup;
+			children = (
+				4CC0187429AA800000FE0867 /* String+Extensions.swift */,
+			);
+			path = Helpers;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -342,6 +370,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				4CC0187229AA7EE400FE0867 /* Localizable.strings in Resources */,
 				4CC0184B29AA29AD00FE0867 /* server_info.json in Resources */,
 				4CC0182129AA203700FE0867 /* Preview Assets.xcassets in Resources */,
 				4CC0185629AA360600FE0867 /* PBTransactions.json in Resources */,
@@ -370,9 +399,11 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				4CC0186E29AA7DC500FE0867 /* TransactionHistoryView.swift in Sources */,
 				4CC0185029AA33C300FE0867 /* NetworkManager.swift in Sources */,
 				4CC0185229AA33F800FE0867 /* NetworkError.swift in Sources */,
 				4CC0186729AA5D2100FE0867 /* TransactionRepositoryProtocol.swift in Sources */,
+				4CC0187529AA800000FE0867 /* String+Extensions.swift in Sources */,
 				4CC0181C29AA203700FE0867 /* ContentView.swift in Sources */,
 				4CC0184E29AA32D500FE0867 /* ApiMethods.swift in Sources */,
 				4CC0186B29AA60DE00FE0867 /* TransactionsHistoryViewModel.swift in Sources */,
@@ -383,6 +414,7 @@
 				4CC0185C29AA43D500FE0867 /* NetworkMonitor.swift in Sources */,
 				4CC0185929AA366F00FE0867 /* TransactionsHistory.swift in Sources */,
 				4CC0186929AA5D4000FE0867 /* TransactionMockedRepository.swift in Sources */,
+				4CC0187029AA7EA800FE0867 /* NetworkConnectionErrorView.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -547,8 +579,7 @@
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
-				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
-				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				INFOPLIST_KEY_UISupportedInterfaceOrientations = UIInterfaceOrientationPortrait;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -576,8 +607,7 @@
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
-				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
-				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				INFOPLIST_KEY_UISupportedInterfaceOrientations = UIInterfaceOrientationPortrait;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
