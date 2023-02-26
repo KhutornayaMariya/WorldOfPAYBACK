@@ -9,10 +9,12 @@ import Foundation
 
 protocol TransactionsHistoryViewModelProtocol {
     func transactionItems() -> [TransactionsHistory.Transaction]
-    func categories() -> [Int]
+    func transactionsSum() -> Int
 }
 
 class TransactionsHistoryViewModel: ObservableObject {
+    
+    @Published var categories: [Int: Bool] = [:]
     
     private let repository: TransactionRepositoryProtocol
     private var items: [TransactionsHistory.Transaction] = []
@@ -22,15 +24,23 @@ class TransactionsHistoryViewModel: ObservableObject {
         updateTransactionList()
     }
     
-    func updateTransactionList() {
+    private func updateTransactionList() {
         repository.fetchTransactions(completionHandler: { [weak self] result in
             switch result {
             case .success(let data):
-                self?.items = data.items
+                guard let self = self else { return }
+                self.items = data.items
+                for category in self.getCategories() {
+                    self.categories[category] = false
+                }
             case .failure(let error):
                 print(error)
             }
         })
+    }
+    
+    private func getCategories() -> [Int] {
+        items.map{ $0.category }.sorted()
     }
 }
 
@@ -44,7 +54,12 @@ extension TransactionsHistoryViewModel: TransactionsHistoryViewModelProtocol {
         return sortedItems
     }
     
-    func categories() -> [Int] {
-        items.map{ $0.category }.sorted()
+    func transactionsSum() -> Int {
+        let selectedCategories = categories.filter { $0.value == true }
+        let filteredItems = items.filter { transaction in
+            selectedCategories.keys.contains(transaction.category)
+        }
+        let sum = filteredItems.map { $0.transactionDetail.value.amount }.reduce(0, +)
+        return sum
     }
 }

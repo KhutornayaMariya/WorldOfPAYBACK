@@ -35,7 +35,9 @@
 		4CC0187B29AA97E400FE0867 /* Date+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4CC0187A29AA97E400FE0867 /* Date+Extensions.swift */; };
 		4CC0188029AB46A700FE0867 /* TransactionDetailsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4CC0187F29AB46A700FE0867 /* TransactionDetailsViewController.swift */; };
 		4CC0188229AB46B600FE0867 /* TransactionDetailsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4CC0188129AB46B600FE0867 /* TransactionDetailsView.swift */; };
-		4CC0188629AB521D00FE0867 /* CategoryBadgeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4CC0188529AB521C00FE0867 /* CategoryBadgeView.swift */; };
+		4CC0188829AB5CFA00FE0867 /* FiltersView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4CC0188729AB5CFA00FE0867 /* FiltersView.swift */; };
+		4CC0188B29AB601700FE0867 /* FilterItemView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4CC0188A29AB601700FE0867 /* FilterItemView.swift */; };
+		4CC0188D29AB60B900FE0867 /* CheckboxStyle.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4CC0188C29AB60B900FE0867 /* CheckboxStyle.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -87,7 +89,9 @@
 		4CC0187A29AA97E400FE0867 /* Date+Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Date+Extensions.swift"; sourceTree = "<group>"; };
 		4CC0187F29AB46A700FE0867 /* TransactionDetailsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TransactionDetailsViewController.swift; sourceTree = "<group>"; };
 		4CC0188129AB46B600FE0867 /* TransactionDetailsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TransactionDetailsView.swift; sourceTree = "<group>"; };
-		4CC0188529AB521C00FE0867 /* CategoryBadgeView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CategoryBadgeView.swift; sourceTree = "<group>"; };
+		4CC0188729AB5CFA00FE0867 /* FiltersView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FiltersView.swift; sourceTree = "<group>"; };
+		4CC0188A29AB601700FE0867 /* FilterItemView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FilterItemView.swift; sourceTree = "<group>"; };
+		4CC0188C29AB60B900FE0867 /* CheckboxStyle.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CheckboxStyle.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -263,10 +267,10 @@
 		4CC0186C29AA7D8E00FE0867 /* Views */ = {
 			isa = PBXGroup;
 			children = (
+				4CC0188929AB600200FE0867 /* Filters */,
 				4CC0187E29AB468600FE0867 /* TransactionDetails */,
 				4CC0186D29AA7DC400FE0867 /* TransactionHistoryView.swift */,
 				4CC0187629AA849F00FE0867 /* TransactionItemView.swift */,
-				4CC0188529AB521C00FE0867 /* CategoryBadgeView.swift */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -303,6 +307,16 @@
 				4CC0187F29AB46A700FE0867 /* TransactionDetailsViewController.swift */,
 			);
 			path = ViewController;
+			sourceTree = "<group>";
+		};
+		4CC0188929AB600200FE0867 /* Filters */ = {
+			isa = PBXGroup;
+			children = (
+				4CC0188729AB5CFA00FE0867 /* FiltersView.swift */,
+				4CC0188A29AB601700FE0867 /* FilterItemView.swift */,
+				4CC0188C29AB60B900FE0867 /* CheckboxStyle.swift */,
+			);
+			path = Filters;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -439,9 +453,9 @@
 			buildActionMask = 2147483647;
 			files = (
 				4CC0188229AB46B600FE0867 /* TransactionDetailsView.swift in Sources */,
-				4CC0188629AB521D00FE0867 /* CategoryBadgeView.swift in Sources */,
 				4CC0188029AB46A700FE0867 /* TransactionDetailsViewController.swift in Sources */,
 				4CC0186E29AA7DC500FE0867 /* TransactionHistoryView.swift in Sources */,
+				4CC0188829AB5CFA00FE0867 /* FiltersView.swift in Sources */,
 				4CC0187729AA849F00FE0867 /* TransactionItemView.swift in Sources */,
 				4CC0185029AA33C300FE0867 /* NetworkManager.swift in Sources */,
 				4CC0185229AA33F800FE0867 /* NetworkError.swift in Sources */,
@@ -452,12 +466,14 @@
 				4CC0184E29AA32D500FE0867 /* ApiMethods.swift in Sources */,
 				4CC0186B29AA60DE00FE0867 /* TransactionsHistoryViewModel.swift in Sources */,
 				4CC0184529AA286400FE0867 /* ServersStorage.swift in Sources */,
+				4CC0188B29AB601700FE0867 /* FilterItemView.swift in Sources */,
 				4CC0184829AA294500FE0867 /* Server.swift in Sources */,
 				4CC0181A29AA203700FE0867 /* WorldOfPAYBACKApp.swift in Sources */,
 				4CC0186429AA474A00FE0867 /* TransactionRepository.swift in Sources */,
 				4CC0185C29AA43D500FE0867 /* NetworkMonitor.swift in Sources */,
 				4CC0185929AA366F00FE0867 /* TransactionsHistory.swift in Sources */,
 				4CC0186929AA5D4000FE0867 /* TransactionMockedRepository.swift in Sources */,
+				4CC0188D29AB60B900FE0867 /* CheckboxStyle.swift in Sources */,
 				4CC0187029AA7EA800FE0867 /* NetworkConnectionErrorView.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

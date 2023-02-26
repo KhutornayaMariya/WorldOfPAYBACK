@@ -12,14 +12,35 @@ struct TransactionHistoryView: View {
     
     var body: some View {
         NavigationView {
-            List{
-                ForEach(model.transactionItems(), id: \.alias.reference) { transaction in
-                    NavigationLink(destination: DetailsView(transaction: transaction)) {
-                        TransactionItemView(transaction: transaction)
-                    }
+            makeTransactionsList()
+                .toolbar {
+                    makeToolbar()
+                }
+                .navigationTitle("TRANSACTIONS_TITLE".localized)
+        }
+    }
+}
+
+// MARK: - Private methods
+
+private extension TransactionHistoryView {
+    
+    func makeTransactionsList() -> some View {
+        return List {
+            Text("\("TRANSACTION_TOTAL".localized): \(model.transactionsSum())")
+                .frame(width: .infinity)
+                .foregroundColor(.black)
+            ForEach(model.transactionItems(), id: \.alias.reference) { transaction in
+                NavigationLink(destination: DetailsView(transaction: transaction)) {
+                    TransactionItemView(transaction: transaction)
                 }
             }
-            .navigationTitle("TRANSACTIONS_TITLE".localized)
+        }
+    }
+    
+    func makeToolbar() -> some View {
+        return NavigationLink(destination: FiltersView()) {
+            Text("FILTERS".localized)
         }
     }
 }
