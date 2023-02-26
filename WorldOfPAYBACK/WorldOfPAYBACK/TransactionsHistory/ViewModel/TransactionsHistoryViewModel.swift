@@ -6,6 +6,7 @@
 //
 
 import Foundation
+import Combine
 
 protocol TransactionsHistoryViewModelProtocol {
     func transactionItems() -> [TransactionsHistory.Transaction]
@@ -14,14 +15,15 @@ protocol TransactionsHistoryViewModelProtocol {
 
 class TransactionsHistoryViewModel: ObservableObject {
     
-    @Published var categories: [Int: Bool] = [:]
-    
+    @Published var categories: [String: Bool] = [:]
     private let repository: TransactionRepositoryProtocol
     private var items: [TransactionsHistory.Transaction] = []
+    private var subscriptions = Set<AnyCancellable>()
     
-    init(){
-        self.repository = TransactionMockedRepository()
+    init() {
+        self.repository = TransactionMockedRepository(dataManager: DataManager())
         updateTransactionList()
+        subscribeToFiltersUpdate()
     }
     
     private func updateTransactionList() {
@@ -31,7 +33,7 @@ class TransactionsHistoryViewModel: ObservableObject {
                 guard let self = self else { return }
                 self.items = data.items
                 for category in self.getCategories() {
-                    self.categories[category] = false
+                    self.categories[String(category)] = false
                 }
             case .failure(let error):
                 print(error)
@@ -41,6 +43,15 @@ class TransactionsHistoryViewModel: ObservableObject {
     
     private func getCategories() -> [Int] {
         items.map{ $0.category }.sorted()
+    }
+    
+    private func subscribeToFiltersUpdate() {
+        repository
+            .filtersUpdates()
+            .sink(receiveValue: { [weak self] filters in
+                self?.categories = filters
+            })
+            .store(in: &subscriptions)
     }
 }
 
@@ -57,7 +68,7 @@ extension TransactionsHistoryViewModel: TransactionsHistoryViewModelProtocol {
     func transactionsSum() -> Int {
         let selectedCategories = categories.filter { $0.value == true }
         let filteredItems = items.filter { transaction in
-            selectedCategories.keys.contains(transaction.category)
+            selectedCategories.keys.contains(String(transaction.category))
         }
         let sum = filteredItems.map { $0.transactionDetail.value.amount }.reduce(0, +)
         return sum

@@ -28,7 +28,6 @@ private extension TransactionHistoryView {
     func makeTransactionsList() -> some View {
         return List {
             Text("\("TRANSACTION_TOTAL".localized): \(model.transactionsSum())")
-                .frame(width: .infinity)
                 .foregroundColor(.black)
             ForEach(model.transactionItems(), id: \.alias.reference) { transaction in
                 NavigationLink(destination: DetailsView(transaction: transaction)) {
@@ -39,7 +38,14 @@ private extension TransactionHistoryView {
     }
     
     func makeToolbar() -> some View {
-        return NavigationLink(destination: FiltersView()) {
+        var row: [FiltersViewModelTypes.Row] = []
+        for category in model.categories {
+            row.append(.init(title: String(category.key), selected: category.value))
+        }
+        let viewData = FiltersViewModelTypes.ViewData.init(title: "FILTERS".localized, rows: row, buttons: [FiltersViewModelTypes.Button.init(title: "APPLY_FILTERS".localized, kind: .apply), FiltersViewModelTypes.Button.init(title: "RESET_FILTERS".localized, kind: .reset)])
+        let filtersView = FiltersModuleFactory().makeView(viewData: viewData, cacheKey: "categoriesFilter")
+        
+        return NavigationLink(destination: filtersView) {
             Text("FILTERS".localized)
         }
     }

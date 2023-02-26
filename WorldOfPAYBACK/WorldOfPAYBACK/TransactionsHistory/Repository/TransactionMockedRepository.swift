@@ -6,12 +6,20 @@
 //
 
 import Foundation
+import Combine
 
 final class TransactionMockedRepository: TransactionRepositoryProtocol {
+    var filtersUpdate = PassthroughSubject<[String : Bool], Never>()
+    private let dataManager: DataManagerProtocol
     
     private enum Constants {
         static let stubsFile = "PBTransactions"
         static let fileType = "json"
+    }
+    
+    init(dataManager: DataManagerProtocol)
+    {
+        self.dataManager = dataManager
     }
     
     func fetchTransactions(completionHandler: @escaping (Result<TransactionsHistory, NetworkError>) -> Void) {
@@ -28,6 +36,19 @@ final class TransactionMockedRepository: TransactionRepositoryProtocol {
                 completionHandler(.failure(.parseError(reason: error.localizedDescription)))
             }
         }
+    }
+    
+    func filtersUpdates() -> AnyPublisher<[String : Bool], Never> {
+        dataManager.updatedKey
+            .filter { $0 == "categoriesFilter" }
+            .flatMap { [weak self] key -> AnyPublisher<[String : Bool], Never> in
+                guard let self = self else {
+                    return Empty().eraseToAnyPublisher()
+                }
+                
+                return Just(self.dataManager.fetch(by: "categoriesFilter")).eraseToAnyPublisher()
+            }
+            .eraseToAnyPublisher()
     }
 }
 

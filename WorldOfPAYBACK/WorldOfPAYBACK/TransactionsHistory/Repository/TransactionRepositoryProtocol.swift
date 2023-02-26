@@ -6,7 +6,9 @@
 //
 
 import Foundation
+import Combine
 
 protocol TransactionRepositoryProtocol: AnyObject {
+    func filtersUpdates() -> AnyPublisher<[String: Bool], Never>
     func fetchTransactions(completionHandler: @escaping (Result<TransactionsHistory, NetworkError>) -> Void)
 }
