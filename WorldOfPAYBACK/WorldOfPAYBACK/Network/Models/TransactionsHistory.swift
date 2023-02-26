@@ -28,6 +28,12 @@ extension TransactionsHistory {
         let description: String?
         let bookingDate: String
         let value: Value
+        
+        
+        func localizedDate() -> String {
+            let date = bookingDate.convertToDate()
+            return date?.convertToUsersLocal() ?? ""
+        }
     }
 }
 

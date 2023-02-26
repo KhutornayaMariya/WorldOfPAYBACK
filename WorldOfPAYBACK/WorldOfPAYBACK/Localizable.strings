@@ -7,3 +7,5 @@
 */
 
 "NO_CONNECTION" = "Something went wrong. Please check your connection and try again.";
+"TRANSACTIONS_TITLE" = "Transactions";
+"REPEAT_BUTTON" = "Please try again";

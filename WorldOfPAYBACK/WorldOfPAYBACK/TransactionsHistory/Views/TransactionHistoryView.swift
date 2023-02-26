@@ -11,10 +11,15 @@ struct TransactionHistoryView: View {
     @ObservedObject var model: TransactionsHistoryViewModel
     
     var body: some View {
-        List{
-            ForEach(model.transactionItems(), id: \.alias.reference) {transaction in
-                Text(transaction.partnerDisplayName)
+        NavigationView {
+            List{
+                ForEach(model.transactionItems(), id: \.alias.reference) { transaction in
+                    NavigationLink(destination: DetailsView(transaction: transaction)) {
+                        TransactionItemView(transaction: transaction)
+                    }
+                }
             }
+            .navigationTitle("TRANSACTIONS_TITLE".localized)
         }
     }
 }

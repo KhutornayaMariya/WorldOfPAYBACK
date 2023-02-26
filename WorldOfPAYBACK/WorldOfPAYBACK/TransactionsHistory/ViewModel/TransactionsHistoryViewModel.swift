@@ -26,7 +26,7 @@ class TransactionsHistoryViewModel: ObservableObject {
         repository.fetchTransactions(completionHandler: { [weak self] result in
             switch result {
             case .success(let data):
-                self?.items = data.items.sorted{ $0.transactionDetail.bookingDate < $1.transactionDetail.bookingDate }
+                self?.items = data.items
             case .failure(let error):
                 print(error)
             }
@@ -36,7 +36,12 @@ class TransactionsHistoryViewModel: ObservableObject {
 
 extension TransactionsHistoryViewModel: TransactionsHistoryViewModelProtocol {
     func transactionItems() -> [TransactionsHistory.Transaction] {
-        items
+        let sortedItems = items.sorted(by: {
+            let lhsDate = ($0.transactionDetail.bookingDate.convertToDate() ?? Date())
+            let rhsDate = ($1.transactionDetail.bookingDate.convertToDate() ?? Date())
+            return lhsDate.compare(rhsDate) == .orderedDescending
+        })
+        return sortedItems
     }
     
     func categories() -> [Int] {
