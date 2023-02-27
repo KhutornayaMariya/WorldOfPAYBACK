@@ -23,7 +23,7 @@ final class TransactionMockedRepository: TransactionRepositoryProtocol {
     }
     
     func fetchTransactions(completionHandler: @escaping (Result<TransactionsHistory, NetworkError>) -> Void) {
-        Bool.random() ? loadDataFromJson(completionHandler: completionHandler) : completionHandler(.failure(.timeoutError))
+        loadDataFromJson(completionHandler: completionHandler)
     }
     
     private func loadDataFromJson(completionHandler: @escaping (Result<TransactionsHistory, NetworkError>) -> Void) {

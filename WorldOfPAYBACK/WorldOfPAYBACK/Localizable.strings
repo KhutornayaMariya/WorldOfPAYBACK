@@ -11,3 +11,5 @@
 "REPEAT_BUTTON" = "Please try again";
 "TRANSACTION_TOTAL" = "Total";
 "FILTERS" = "Filters";
+
+"ERROR_MESSAGE" = "Something went wrong. Please try again later";

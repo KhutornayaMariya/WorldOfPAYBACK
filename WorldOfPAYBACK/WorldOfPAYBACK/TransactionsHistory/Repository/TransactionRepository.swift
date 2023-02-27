@@ -29,16 +29,16 @@ final class TransactionRepository {
 
 extension TransactionRepository: TransactionRepositoryProtocol {
     func filtersUpdates() -> AnyPublisher<[String : Bool], Never> {
-            dataManager.updatedKey
-                .filter { $0 == "categoriesFilter" }
-                .flatMap { [weak self] key -> AnyPublisher<[String : Bool], Never> in
-                    guard let self = self else {
-                        return Empty().eraseToAnyPublisher()
-                    }
-                    
-                    return Just(self.dataManager.fetch(by: "categoriesFilter")).eraseToAnyPublisher()
+        dataManager.updatedKey
+            .filter { $0 == "categoriesFilter" }
+            .flatMap { [weak self] key -> AnyPublisher<[String : Bool], Never> in
+                guard let self = self else {
+                    return Empty().eraseToAnyPublisher()
                 }
-                .eraseToAnyPublisher()
+                
+                return Just(self.dataManager.fetch(by: "categoriesFilter")).eraseToAnyPublisher()
+            }
+            .eraseToAnyPublisher()
     }
     
     func fetchTransactions(completionHandler: @escaping (Result<TransactionsHistory, NetworkError>) -> Void) {

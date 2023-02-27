@@ -9,6 +9,7 @@ import SwiftUI
 
 struct TransactionHistoryView: View {
     @ObservedObject var model: TransactionsHistoryViewModel
+    @State private var error: Bool = false
     
     var body: some View {
         NavigationView {
@@ -19,6 +20,14 @@ struct TransactionHistoryView: View {
                     }
                 }
                 .navigationTitle("TRANSACTIONS_TITLE".localized)
+                .overlay(alignment: .top) {
+                    if error {
+                        makeError()
+                    }
+                }
+                .refreshable {
+                    error = true
+                }
         }
     }
 }
@@ -49,6 +58,21 @@ private extension TransactionHistoryView {
         return NavigationLink(destination: filtersView) {
             Text("FILTERS".localized)
         }
+    }
+    
+    func makeError() -> some View {
+        return VStack(spacing: 10) {
+            Text("ERROR_MESSAGE".localized)
+                .font(.title3)
+            Button("REPEAT_BUTTON".localized) {
+                self.error = false
+            }
+            .buttonStyle(.bordered)
+        }
+        .padding()
+        .foregroundColor(.white)
+        .background(Color.green)
+        .cornerRadius(5)
     }
 }
 
