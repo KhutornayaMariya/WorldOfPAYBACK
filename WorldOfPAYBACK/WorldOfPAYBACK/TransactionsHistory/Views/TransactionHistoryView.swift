@@ -14,7 +14,9 @@ struct TransactionHistoryView: View {
         NavigationView {
             makeTransactionsList()
                 .toolbar {
-                    makeToolbar()
+                    if !model.categories.isEmpty {
+                        makeToolbar()
+                    }
                 }
                 .navigationTitle("TRANSACTIONS_TITLE".localized)
         }
@@ -38,12 +40,11 @@ private extension TransactionHistoryView {
     }
     
     func makeToolbar() -> some View {
-        var row: [FiltersViewModelTypes.Row] = []
-        for category in model.categories {
-            row.append(.init(title: String(category.key), selected: category.value))
-        }
-        let viewData = FiltersViewModelTypes.ViewData.init(title: "FILTERS".localized, rows: row, buttons: [FiltersViewModelTypes.Button.init(title: "APPLY_FILTERS".localized, kind: .apply), FiltersViewModelTypes.Button.init(title: "RESET_FILTERS".localized, kind: .reset)])
-        let filtersView = FiltersModuleFactory().makeView(viewData: viewData, cacheKey: "categoriesFilter")
+        let filtersView = FiltersModuleFactory()
+            .makeView(filters: Filters(
+                key: "categoriesFilter",
+                value: model.categories
+            ))
         
         return NavigationLink(destination: filtersView) {
             Text("FILTERS".localized)

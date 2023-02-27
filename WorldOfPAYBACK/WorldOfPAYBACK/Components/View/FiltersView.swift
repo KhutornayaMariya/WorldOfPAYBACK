@@ -17,6 +17,7 @@ struct FiltersView: View {
                 Spacer()
                 makeButtons()
             }
+            .navigationTitle(viewModel.viewData.title)
         }
     }
 }
@@ -51,13 +52,12 @@ private extension FiltersView {
 
 struct FiltersView_Previews: PreviewProvider {
     static var previews: some View {
-        FiltersView(viewModel: FiltersViewModel(
-            viewData: FiltersViewModelTypes.ViewData(
-                title: "Filters",
-                rows: [.init(title: "1", selected: false), .init(title: "2", selected: true)],
-                buttons: [.init(title: "Apply", kind: .apply), .init(title: "Reset", kind: .reset)]
-            ),
-            model: FiltersModel(key: "categoriesFilter")
-        ))
+        FiltersView(
+            viewModel: FiltersViewModel(
+                model: FiltersModel(
+                    filters: Filters(key: "", value: ["1": true, "2": false, "3": true])
+                )
+            )
+        )
     }
 }

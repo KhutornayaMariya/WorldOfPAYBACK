@@ -8,19 +8,36 @@
 import Foundation
 
 protocol FiltersModelProtocol: AnyObject {
-    func save(filters: [String: Bool])
+    var current: Filters { get }
+    
+    func save()
+    func update(filter: String)
+    func reset()
 }
 
 final class FiltersModel: FiltersModelProtocol {
-    private let key: String
+    private let original: Filters
     private let dataManager: DataManagerProtocol
     
-    init(key: String, dataManager: DataManagerProtocol = DataManager.shared) {
-        self.key = key
+    private(set) var current: Filters
+    
+    init(filters: Filters, dataManager: DataManagerProtocol = DataManager.shared) {
+        self.current = filters
+        self.original = filters
         self.dataManager = dataManager
     }
     
-    func save(filters: [String: Bool]) {
-        dataManager.cache(data: filters, key: key)
+    func save() {
+        dataManager.cache(data: current.value, for: current.key)
+    }
+    
+    func update(filter: String) {
+        if let enabled = current.value[filter] {
+            current.value[filter] = !enabled
+        }
+    }
+    
+    func reset() {
+        current = original
     }
 }

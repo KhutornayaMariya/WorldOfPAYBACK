@@ -8,9 +8,9 @@
 import SwiftUI
 
 final class FiltersModuleFactory {
-    func makeView(viewData: FiltersViewModelTypes.ViewData, cacheKey: String) -> some View {
-        let model = FiltersModel(key: cacheKey)
-        let viewModel = FiltersViewModel(viewData: viewData, model: model)
+    func makeView(filters: Filters) -> some View {
+        let model = FiltersModel(filters: filters)
+        let viewModel = FiltersViewModel(model: model)
         
         return FiltersView(viewModel: viewModel)
     }

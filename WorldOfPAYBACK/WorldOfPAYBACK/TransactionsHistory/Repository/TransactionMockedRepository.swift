@@ -17,7 +17,7 @@ final class TransactionMockedRepository: TransactionRepositoryProtocol {
         static let fileType = "json"
     }
     
-    init(dataManager: DataManagerProtocol)
+    init(dataManager: DataManagerProtocol = DataManager.shared)
     {
         self.dataManager = dataManager
     }

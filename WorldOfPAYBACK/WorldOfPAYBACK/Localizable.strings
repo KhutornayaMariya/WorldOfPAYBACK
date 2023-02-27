@@ -9,8 +9,5 @@
 "NO_CONNECTION" = "Something went wrong. Please check your connection and try again.";
 "TRANSACTIONS_TITLE" = "Transactions";
 "REPEAT_BUTTON" = "Please try again";
-"FILTERS" = "Filters";
-"APPLY_FILTERS" = "Apply filters";
-"RESET_FILTERS" = "Reset filters";
 "TRANSACTION_TOTAL" = "Total";
-
+"FILTERS" = "Filters";

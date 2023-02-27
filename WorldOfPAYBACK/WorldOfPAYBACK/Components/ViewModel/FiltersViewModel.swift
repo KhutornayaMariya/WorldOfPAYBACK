@@ -16,19 +16,30 @@ protocol FiltersViewModelProtocol: ObservableObject {
 final class FiltersViewModel: FiltersViewModelProtocol {
     @Published var viewData: FiltersViewModelTypes.ViewData
     private let model: FiltersModelProtocol
+    private let dataMapper: FiltersDataMapperProtocol
     
-    init(viewData: FiltersViewModelTypes.ViewData,
-         model: FiltersModelProtocol) {
+    init(model: FiltersModelProtocol,
+         dataMapper: FiltersDataMapperProtocol = FiltersDataMapper()) {
         
-        self.viewData = viewData
         self.model = model
+        self.dataMapper = dataMapper
+        
+        viewData = dataMapper.map(model.current)
     }
     
     func didTap(row: FiltersViewModelTypes.Row) {
-        model.save(filters: [row.title : row.selected])
+        model.update(filter: row.title)
+        viewData = dataMapper.map(model.current)
     }
     
     func didTap(button: FiltersViewModelTypes.Button) {
-        //
+        switch button.kind {
+        case .apply:
+            model.save()
+            
+        case .reset:
+            model.reset()
+            viewData = dataMapper.map(model.current)
+        }
     }
 }

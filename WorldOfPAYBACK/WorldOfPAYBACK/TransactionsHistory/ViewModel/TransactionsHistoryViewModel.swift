@@ -21,7 +21,7 @@ class TransactionsHistoryViewModel: ObservableObject {
     private var subscriptions = Set<AnyCancellable>()
     
     init() {
-        self.repository = TransactionMockedRepository(dataManager: DataManager())
+        self.repository = TransactionMockedRepository()
         updateTransactionList()
         subscribeToFiltersUpdate()
     }
@@ -42,7 +42,7 @@ class TransactionsHistoryViewModel: ObservableObject {
     }
     
     private func getCategories() -> [Int] {
-        items.map{ $0.category }.sorted()
+        items.map{ $0.category }.sorted(by: <)
     }
     
     private func subscribeToFiltersUpdate() {
@@ -53,23 +53,31 @@ class TransactionsHistoryViewModel: ObservableObject {
             })
             .store(in: &subscriptions)
     }
-}
-
-extension TransactionsHistoryViewModel: TransactionsHistoryViewModelProtocol {
-    func transactionItems() -> [TransactionsHistory.Transaction] {
-        let sortedItems = items.sorted(by: {
+    
+    private func sortedTransactions(_ data: [TransactionsHistory.Transaction]) -> [TransactionsHistory.Transaction] {
+        data.sorted(by: {
             let lhsDate = ($0.transactionDetail.bookingDate.convertToDate() ?? Date())
             let rhsDate = ($1.transactionDetail.bookingDate.convertToDate() ?? Date())
             return lhsDate.compare(rhsDate) == .orderedDescending
         })
-        return sortedItems
+    }
+}
+
+extension TransactionsHistoryViewModel: TransactionsHistoryViewModelProtocol {
+    func transactionItems() -> [TransactionsHistory.Transaction] {
+        let selectedCategories = categories.filter { $0.value == true }
+        if !selectedCategories.isEmpty {
+            let filteredItems = items.filter { transaction in
+                selectedCategories.keys.contains(String(transaction.category))
+            }
+            return sortedTransactions(filteredItems)
+        }
+        
+        return sortedTransactions(items)
     }
     
     func transactionsSum() -> Int {
-        let selectedCategories = categories.filter { $0.value == true }
-        let filteredItems = items.filter { transaction in
-            selectedCategories.keys.contains(String(transaction.category))
-        }
+        let filteredItems = transactionItems()
         let sum = filteredItems.map { $0.transactionDetail.value.amount }.reduce(0, +)
         return sum
     }

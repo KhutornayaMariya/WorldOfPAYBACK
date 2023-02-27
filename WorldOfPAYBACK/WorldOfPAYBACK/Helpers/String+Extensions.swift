@@ -12,6 +12,10 @@ extension String {
         NSLocalizedString(self, comment: "")
     }
     
+    var localizedFilters: String {
+            NSLocalizedString(self, tableName: "Filters", comment: "")
+    }
+    
     func convertToDate() -> Date? {
         let dateFormatter = DateFormatter()
         dateFormatter.dateFormat = "yyyy-MM-dd'T'HH:mm:ssZ"

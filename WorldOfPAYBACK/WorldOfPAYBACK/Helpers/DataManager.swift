@@ -9,7 +9,7 @@ import Foundation
 import Combine
 
 protocol DataManagerProtocol: AnyObject {
-    func cache(data: Encodable, key: String)
+    func cache(data: Encodable, for key: String)
     func fetch(by key: String) -> [String: Bool]
     
     var updatedKey: PassthroughSubject<String, Never> { get }
@@ -24,7 +24,7 @@ final class DataManager: DataManagerProtocol {
         FileManager.default.urls(for: .documentDirectory, in: .userDomainMask)[0]
     }()
     
-    func cache(data: Encodable, key: String) {
+    func cache(data: Encodable, for key: String) {
         guard let data = exec(function: { try JSONSerialization.data(withJSONObject: data) }) else {
             return
         }

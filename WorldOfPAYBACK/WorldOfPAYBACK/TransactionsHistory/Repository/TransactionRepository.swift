@@ -41,5 +41,22 @@ extension TransactionRepository: TransactionRepositoryProtocol {
                 .eraseToAnyPublisher()
     }
     
-    func fetchTransactions(completionHandler: @escaping (Result<TransactionsHistory, NetworkError>) -> Void) { }
+    func fetchTransactions(completionHandler: @escaping (Result<TransactionsHistory, NetworkError>) -> Void) {
+        guard let url = url else { return }
+        networkManager.request(url: url) { result in
+            switch result {
+            case .success(let data):
+                do {
+                    let decoder = JSONDecoder()
+                    let data = try decoder.decode(TransactionsHistory.self, from: data)
+                    completionHandler(.success(data))
+                } catch let error {
+                    completionHandler(.failure(.parseError(reason: error.localizedDescription)))
+                }
+                
+            case .failure(_):
+                completionHandler(.failure(.unknownError))
+            }
+        }
+    }
 }
