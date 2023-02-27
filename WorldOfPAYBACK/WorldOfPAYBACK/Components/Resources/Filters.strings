@@ -1,0 +1,11 @@
+/* 
+  Localizable.strings
+  WorldOfPAYBACK
+
+  Created by Mariya Khutornaya on 26.02.23.
+  
+*/
+
+"APPLY_FILTERS" = "Apply filters";
+"RESET_FILTERS" = "Reset filters";
+"FILTERS" = "Filters";

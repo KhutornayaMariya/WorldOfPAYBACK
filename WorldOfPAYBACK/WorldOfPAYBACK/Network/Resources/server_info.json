@@ -1,0 +1,16 @@
+{
+    "production": {
+        "title": "Production",
+        "api": {
+            "scheme": "https",
+            "host": "api.payback.com"
+        }
+    },
+    "testing": {
+        "title": "Testing",
+        "api": {
+            "scheme": "https",
+            "host": "api-test.payback.com"
+        }
+    }
+}

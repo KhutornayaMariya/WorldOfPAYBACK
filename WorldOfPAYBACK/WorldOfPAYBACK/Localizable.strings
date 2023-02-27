@@ -1,0 +1,15 @@
+/* 
+  Localizable.strings
+  WorldOfPAYBACK
+
+  Created by Mariya Khutornaya on 25.02.23.
+  
+*/
+
+"NO_CONNECTION" = "Something went wrong. Please check your connection and try again.";
+"TRANSACTIONS_TITLE" = "Transactions";
+"REPEAT_BUTTON" = "Please try again";
+"TRANSACTION_TOTAL" = "Total";
+"FILTERS" = "Filters";
+
+"ERROR_MESSAGE" = "Something went wrong. Please try again later";
